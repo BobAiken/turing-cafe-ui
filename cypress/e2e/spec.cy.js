@@ -1,15 +1,15 @@
 describe('iteration 3', () => {
 
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
-    .intercept('http://localhost:3001/api/v1/reservations', {body: [{
+    cy.intercept('http://localhost:3001/api/v1/reservations',[{
       id: 1,
       name: "Christie",
       date: "12/29",
       time: "7:00",
       number: 12
-      },]}
-  )});
+      },])
+    cy.visit('http://localhost:3000')
+});
 
   it('should display all elements on the page', () => {
     cy.contains('Turing Cafe Reservations')
@@ -44,7 +44,7 @@ describe('iteration 3', () => {
     .type('1')
     .get('button').click()
     .get('div[class="reservations-container"]').children()
-    .should('have.length', 10)
+    .should('have.length', 2)
 
   })
 })

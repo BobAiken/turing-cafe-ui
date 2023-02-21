@@ -2,7 +2,13 @@ describe('iteration 3', () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:3000')
-    .intercept('http://localhost:3001/api/v1/reservations',
+    .intercept('http://localhost:3001/api/v1/reservations', {body: [{
+      id: 1,
+      name: "Christie",
+      date: "12/29",
+      time: "7:00",
+      number: 12
+      },]}
   )});
 
   it('should display all elements on the page', () => {

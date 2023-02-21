@@ -23,6 +23,7 @@ class Form extends Component {
       ...this.state
     }
     this.props.addReservation(newReservation)
+    this.clearInputs()
 
   }
 
